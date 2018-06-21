@@ -14,9 +14,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.status(200).send('My phone book app.');
-})
+// app.get('/', (req, res) => {
+//     res.status(200).send('My phone book app.');
+// })
+
+const UserController = require(__root + 'user/UserController');
+app.use('/api/users', UserController);
 
 const server = app.listen(port, () => {
     console.log('Express server listening on port ' + port);
