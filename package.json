@@ -9,9 +9,11 @@
   "author": "KC",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongoose": "^5.1.6"
   },
   "devDependencies": {
-    "@angular/cli": "^6.0.8"
+    "@angular/cli": "^6.0.8",
+    "dotenv": "^6.0.0"
   }
 }
