@@ -33,16 +33,7 @@ export class AddContactDialog implements OnInit, OnDestroy {
         let getAllPhoneType_sub = this.phoneBookService.getAllPhoneType()
             .subscribe(
                 (value) => {
-                    if (value.status === 204) {
-
-                    } else if (value.status === 200) {
-                        if (typeof (value.body) === 'string') {
-                            // this.openSnackBar(value.body, '');
-                        } else if (typeof (value.body) === 'object') {
-                            this.phoneTypeData = value.body;
-                        }
-                    } else {
-                    }
+                    this.phoneTypeData = value;
                 },
                 (error) => {
                     this.errorMessage = <any>error;

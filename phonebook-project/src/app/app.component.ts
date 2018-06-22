@@ -156,22 +156,11 @@ export class AppComponent implements OnInit, OnDestroy {
     let getContactByNumber_sub = this.phoneBookService.getContactByFirstName(this.searchText)
       .subscribe(
         (value) => {
-          if (value.status === 204) {
+          this.phoneBookData = [];
+          this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          } else if (value.status === 200) {
-            if (typeof (value.body) === 'string') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-            } else if (typeof (value.body) === 'object') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-
-              this.phoneBookData.push(value.body);
-              this.sortByLastName('asc');
-            }
-          } else {
-
-          }
+          this.phoneBookData.push(value);
+          this.sortByLastName('asc');
         },
         (error) => {
           this.errorMessage = <any>error;
@@ -187,22 +176,11 @@ export class AppComponent implements OnInit, OnDestroy {
     let getContactByNumber_sub = this.phoneBookService.getContactByLastName(this.searchText)
       .subscribe(
         (value) => {
-          if (value.status === 204) {
+          this.phoneBookData = [];
+          this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          } else if (value.status === 200) {
-            if (typeof (value.body) === 'string') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-            } else if (typeof (value.body) === 'object') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-
-              this.phoneBookData.push(value.body);
-              this.sortByLastName('asc');
-            }
-          } else {
-
-          }
+          this.phoneBookData.push(value);
+          this.sortByLastName('asc');
         },
         (error) => {
           this.errorMessage = <any>error;
@@ -218,22 +196,11 @@ export class AppComponent implements OnInit, OnDestroy {
     let getContactByNumber_sub = this.phoneBookService.getContactByNumber(this.searchText)
       .subscribe(
         (value) => {
-          if (value.status === 204) {
+          this.phoneBookData = [];
+          this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          } else if (value.status === 200) {
-            if (typeof (value.body) === 'string') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-            } else if (typeof (value.body) === 'object') {
-              this.phoneBookData = [];
-              this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
-
-              this.phoneBookData.push(value.body);
-              this.sortByLastName('asc');
-            }
-          } else {
-
-          }
+          this.phoneBookData.push(value);
+          this.sortByLastName('asc');
         },
         (error) => {
           this.errorMessage = <any>error;

@@ -13,38 +13,45 @@ export class PhoneBookService {
 
     getAllContact(): Observable<PhoneBookDT[]> {
         let url = this.phoneBookServiceURL + "users/getAllContact";
+        // let header = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-        let header = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-        return this.httpclient.get<PhoneBookDT[]>(url, {
-            headers: header
-        }).catch(this.handleError);
+        return this.httpclient.get<PhoneBookDT[]>(url)
+            .catch(this.handleError);
 
         // return this.getHelper(url);
     }
 
-    getAllPhoneType(): Observable<HttpResponse<PhoneTypeDT[]>> {
+    getAllPhoneType(): Observable<PhoneTypeDT[]> {
         let url = this.phoneBookServiceURL + "users/getAllPhoneType";
 
-        return this.getHelper(url);
+        return this.httpclient.get<PhoneTypeDT[]>(url)
+            .catch(this.handleError);
+
+        // return this.getHelper(url);
     }
 
-    getContactByFirstName(firstName: string): Observable<HttpResponse<PhoneBookDT>> {
+    getContactByFirstName(firstName: string): Observable<PhoneBookDT> {
         let url = this.phoneBookServiceURL + "users/getContactByFirstName?firstName=" + firstName;
 
-        return this.getHelper(url);
+        return this.httpclient.get<PhoneBookDT>(url)
+            .catch(this.handleError);
+        // return this.getHelper(url);
     }
 
-    getContactByLastName(lastName: string): Observable<HttpResponse<PhoneBookDT>> {
+    getContactByLastName(lastName: string): Observable<PhoneBookDT> {
         let url = this.phoneBookServiceURL + "users/getContactByLastName?lastName=" + lastName;
 
-        return this.getHelper(url);
+        return this.httpclient.get<PhoneBookDT>(url)
+            .catch(this.handleError);
+        // return this.getHelper(url);
     }
 
-    getContactByNumber(number: string): Observable<HttpResponse<PhoneBookDT>> {
+    getContactByNumber(number: string): Observable<PhoneBookDT> {
         let url = this.phoneBookServiceURL + "users/getContactByNumber?number=" + number;
 
-        return this.getHelper(url);
+        return this.httpclient.get<PhoneBookDT>(url)
+            .catch(this.handleError);
+        // return this.getHelper(url);
     }
 
     insertContact(model: any): Observable<HttpResponse<Object>> {

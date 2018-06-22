@@ -5,7 +5,7 @@ const db = require('./db');
 require('dotenv').config();
 global.__root = __dirname + '/';
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 //Setting up CORS
 app.use(function (req, res, next) {
