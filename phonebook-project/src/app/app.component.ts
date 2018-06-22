@@ -159,8 +159,10 @@ export class AppComponent implements OnInit, OnDestroy {
           this.phoneBookData = [];
           this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          this.phoneBookData.push(value);
-          this.sortByLastName('asc');
+          if (!value && value !== null) {
+            this.phoneBookData.push(value);
+            this.sortByLastName('asc');
+          }
         },
         (error) => {
           this.errorMessage = <any>error;
@@ -179,8 +181,10 @@ export class AppComponent implements OnInit, OnDestroy {
           this.phoneBookData = [];
           this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          this.phoneBookData.push(value);
-          this.sortByLastName('asc');
+          if (!value && value !== null) {
+            this.phoneBookData.push(value);
+            this.sortByLastName('asc');
+          }
         },
         (error) => {
           this.errorMessage = <any>error;
@@ -199,8 +203,10 @@ export class AppComponent implements OnInit, OnDestroy {
           this.phoneBookData = [];
           this.phoneBookDataSource = new MatTableDataSource<PhoneBookDT>(this.phoneBookData);
 
-          this.phoneBookData.push(value);
-          this.sortByLastName('asc');
+          if (!value && value !== null) {
+            this.phoneBookData.push(value);
+            this.sortByLastName('asc');
+          }
         },
         (error) => {
           this.errorMessage = <any>error;

@@ -8,11 +8,11 @@ router.use(bodyParser.json());
 const PhoneType = require('../models/PhoneType');
 const Contact = require('../models/Contact');
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
     res.status(200).send('user controller works.');
 });
 
-router.post('/addPhoneType', function (req, res) {
+router.post('/addPhoneType', (req, res) => {
     PhoneType.create({
         _id: new mongoose.Types.ObjectId(),
         type: req.body.type
@@ -24,7 +24,7 @@ router.post('/addPhoneType', function (req, res) {
         });
 });
 
-router.post('/addContact', function (req, res) {
+router.post('/addContact', (req, res) => {
     PhoneType.findOne({ type: req.body.type }, (err, phonetype) => {
         if (err) return res.status(500).send('Error on the server.');
         if (!phonetype) return res.status(404).send('No phone type found.');
@@ -45,7 +45,7 @@ router.post('/addContact', function (req, res) {
     });
 });
 
-router.post('/createContact', function (req, res) {
+router.post('/createContact', (req, res) => {
     PhoneType.findById({ _id: req.body.phoneTypeId }, (err, phonetype) => {
         if (err) return res.status(500).send('Error on the server.');
         if (!phonetype) return res.status(404).send('No phone type found.');
@@ -78,7 +78,7 @@ router.post('/createContact', function (req, res) {
     });
 });
 
-router.get('/getAllPhoneType', function (req, res) {
+router.get('/getAllPhoneType', (req, res) => {
     PhoneType.
         find({}).
         exec((err, phoneTypes) => {
@@ -89,14 +89,7 @@ router.get('/getAllPhoneType', function (req, res) {
         });
 });
 
-router.get('/getAllContact', function (req, res) {
-    // Contact.find({}, (err, contacts) => {
-    //     if (err) return res.status(500).send('Error on the server.');
-    //     if (!contacts) return res.status(404).send('No contact found.');
-
-    //     res.status(200).send(contacts);
-    // });
-
+router.get('/getAllContact', (req, res) => {
     Contact.
         find({}).
         populate('phoneType').
@@ -104,7 +97,6 @@ router.get('/getAllContact', function (req, res) {
             if (err) return res.status(500).send('Error on the server.');
             if (!contacts) return res.status(404).send('No contact found.');
 
-            // console.log(contacts.sortByProp('FirstName'));
             res.status(200).send(contacts);
         });
 });
