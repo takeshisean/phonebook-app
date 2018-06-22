@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, ResponseContentType } from '@angular/http';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../environments/environment';
 import { PhoneBookDT, PhoneTypeDT } from '../models/phonebook.model';
 
 @Injectable()
 export class PhoneBookService {
-    private phoneBookServiceURL: string = 'http://localhost:3000/api/';
+    private phoneBookServiceURL: string = environment.Service_URL;
 
     constructor(protected http: Http, private httpclient: HttpClient) { }
 
