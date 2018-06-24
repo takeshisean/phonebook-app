@@ -4,6 +4,8 @@
   "description": "Nodejs phonebook app",
   "main": "index.js",
   "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "KC",
