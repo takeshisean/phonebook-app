@@ -132,4 +132,10 @@ router.get('/getContactByNumber', (req, res) => {
         });
 });
 
+router.get('/getContactByNumberAsync', async (req, res) => {
+    const contact = await Contact.findOne({ number: req.query.number }).populate('phoneType');
+
+    res.send(contact);
+});
+
 module.exports = router;
