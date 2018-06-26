@@ -6,7 +6,7 @@ const db = require('./db');
 require('dotenv').config();
 global.__root = __dirname + '/';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 //Setting up CORS
 app.use(function (req, res, next) {
@@ -15,9 +15,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-// app.get('/', (req, res) => {
-//     res.status(200).send('My phone book app.');
-// })
+app.get('/', (req, res) => {
+    res.status(200).send('My phone book app.');
+})
 
 const UserController = require(__root + 'user/UserController');
 app.use('/api/users', UserController);
